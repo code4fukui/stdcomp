@@ -1,0 +1,50 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>stdcomp test</title>
+</head>
+<body>
+
+<h1>stdcomp test</h1>
+<div id=table></div>
+
+<script type="module" src="https://code4fukui.github.io/code-js/code-js.js"></script>
+<code-js>
+import { createButton, createTable, createSelect, createInput } from "https://js.sabae.cc/stdcomp.js";
+
+table.appendChild(createTable([
+  ["項目", "入力", "アクション"],
+  ["あいう", createInput("テスト"), createButton("やほ")],
+  ["かきく", createSelect([1,2,3,4]), createButton("はろ")],
+]));
+</code-js>
+<footer><a href=https://github.com/code4fukui/stdcomp/>src on GitHub</a></footer>
+
+<script type="module">
+import { createButton, createTable, createSelect, createInput } from "./stdcomp.js";
+
+onload = () => {
+  table.appendChild(createTable([
+    ["項目", "入力", "アクション"],
+    ["あいう", createInput("テスト"), createButton("やほ")],
+    ["かきく", createSelect([1,2,3,4]), createButton("はろ")],
+  ]));
+};
+</script>
+
+<style>
+table {
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid black;
+  padding: .5em;
+}
+th {
+  background-color: #eef;
+}
+footer {
+  margin: 1em 0;
+}
+</style>
+
+</body>
+</html>
