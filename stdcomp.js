@@ -41,7 +41,7 @@ export const createTable = (ar, parent, className) => {
     const as = ar[i];
     const tr = create("tr", tbl);
     for (const a of as) {
-      if (typeof a == "string") {
+      if (typeof a == "string" || typeof a == "number") {
         create("td", tr).innerHTML = a;
       } else {
         const c = create("td", tr);
