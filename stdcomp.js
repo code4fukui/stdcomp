@@ -34,19 +34,22 @@ export const createSelect = (ar, parent, className) => {
 export const createTable = (ar, parent, className) => {
   const tbl = create("table", parent, className);
   const tr = create("tr", tbl);
+  const append = (tr, tag, a) => {
+    if (typeof a == "string" || typeof a == "number") {
+      create(tag, tr).innerHTML = a;
+    } else {
+      const c = create(tag, tr);
+      c.appendChild(a);
+    }
+  };
   for (const a of ar[0]) {
-    create("th", tr).innerHTML = a;
+    append(tr, "th", a);
   }
   for (let i = 1; i < ar.length; i++) {
     const as = ar[i];
     const tr = create("tr", tbl);
     for (const a of as) {
-      if (typeof a == "string" || typeof a == "number") {
-        create("td", tr).innerHTML = a;
-      } else {
-        const c = create("td", tr);
-        c.appendChild(a);
-      }
+      append(tr, "td", a);
     }
   }
   return tbl;
