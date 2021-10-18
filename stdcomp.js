@@ -54,3 +54,14 @@ export const createTable = (ar, parent, className) => {
   }
   return tbl;
 };
+
+export const setAttributes = (comp, opts) => {
+  if (!opts) {
+    return;
+  }
+  for (const name in opts) {
+    if (opts[name] != null) {
+      comp.setAttribute(name, opts[name]);
+    }
+  }
+};
